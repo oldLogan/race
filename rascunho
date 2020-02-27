@@ -1,0 +1,79 @@
+		
+						
+	<pre>
+       <?php
+		//print_r($produtos); 
+		//print_r($empresa);
+	   ?>
+	</pre>
+	
+	
+	
+	<?php foreach($produtos as $produto){ 
+			
+			$nme_autoescola = $produto["nomefanstasia"]; 
+	}?>
+	
+	
+	<?php foreach($produtos as $produto){ 
+			
+			$id_id = $produto["id_empresa"];
+			$nme_autoescola = $produto["nomefantasia"]; 
+			$descricao = $produto["empre_descr"]; 
+			$nme_produto = $produto["titulo"]; 
+			$valor = $produto["valor"];
+			
+	}
+		
+		unset($produto);
+	
+	?>
+	
+	
+	select("pi.id, pi.ordem, pi.id_servico, s.titulo, s.id_empresa_tipo, s.tem_aula, s.id as id_servico, s.vlr_servico"); //, eps.valor as vlr_servico
+		$this->db->from("produto_servico pi");
+		$this->db->join("servico as s", "s.id = pi.id_servico and s.ativado = 1");
+		//$this->db->join("empresa_produto as ep", "pi.id_produto = ep.id_produto");
+		//$this->db->join("empresa_produto_servico as eps", "ep.id_produto = eps.id_produto and s.ativado = 1", "left");
+		$this->db->where("pi.id_produto", $id_produto);
+		$this->db->where("s.id_empresa_tipo", $empresa_tipo);
+		$this->db->where("pi.ativado", 1
+		
+		
+		
+		
+		
+		
+		/*foreach($dados['produtos'] as $produto){ 
+				
+				if($produto['id_empresa'] == $id && $produto['id'] == $idpr){
+				
+					$id_id = $produto["id_empresa"];
+					$nme_autoescola = $produto["nomefantasia"]; 
+					$descricao = $produto["empre_descr"]; 
+					$prod = $produto["titulo"]; 
+					$valor = $produto["valor"]; 
+					
+					$dado = array('nme_autoescola' => $nme_autoescola, 'descricao' => $descricao, 'prod' => $prod, 'valor' => $valor);
+					$dado = array('produto' => $produto);
+					//$this->load->template('informacoes',  $dados);
+					//var_dump($dado); die;
+				}
+					
+			}
+					
+			foreach($data['servicos'] as $servico){ 
+				
+				if($servico['id_empresa'] == $id_empresa && $servico['id_produto'] == $idpr){
+								
+					$id_servico = $servico["id_servico"];
+					$nme_servico = $servico["titulo"]; 
+					$valor = $servico["valor"];
+					
+					$servico = array('nme_servico' => $nme_servico, 'valor' => $valor);	
+					//$data = array('servico' => $servico);
+					//$this->load->template('informacoes',  $data);
+					//var_dump($dados); die;
+				}
+				
+			}*/

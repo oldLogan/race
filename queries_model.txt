@@ -1,0 +1,6 @@
+select e.*, ep.id as id_empresa_produto, ep.valor, p.titulo 
+		 from empresa as e
+		 join empresa_produto ep on ep.id_empresa = e.id and ep.ativado = 1 
+		 join produto as p on p.id = ep.id_produto and p.ativado = 1 
+		 where p.id >= 1
+		 and e.ativado = 1;

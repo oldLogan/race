@@ -13,11 +13,30 @@
         
 </head>
 
+<style>
+ 
+
+</style>
+
     <div class="container">
         <div class="row">
             <div class="form-group">
                 <div class="col-sm-12 text-center">
-                    <h2>Acompanhe aqui o resultado da última corrida</h2>
+					</br>
+					</br>
+					</br>
+					</br>
+					</br>
+					<h3>Os pilotos:</h3>
+					 <?php   foreach ($pilotos as $piloto) { ?>
+                    <tr>
+                        <td><?=$piloto["nme_piloto"]?></br></td>
+					</tr>
+					 <?php   }   ?>
+					</br>
+					</br>
+					</br>
+                    <h5>Acompanhe aqui o resultado da última corrida</h5>
 					<a href="/resultados">Resultados</a>
             </div>
         </div>

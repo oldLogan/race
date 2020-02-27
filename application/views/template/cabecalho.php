@@ -26,15 +26,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">
-                        <img src="<?=base_url(); ?>/assets/images/logomarca_transparente.png" alt="Logo" />
-                    </a>
+                   
                 </div>
                          
                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right"> <!-- nav navbar-nav navbar-right -->
                         <li class="active"><a href="/">Página Inicial</a></li>
-						<li><a href="/pilotos">Pilotos</a></li>
 						<li><a href="/resultados">Resultados</a></li>
 					</ul>
 				</div>

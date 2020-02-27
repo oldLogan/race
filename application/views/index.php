@@ -26,18 +26,13 @@
 					</br>
 					</br>
 					</br>
-					</br>
-					<h3>Os pilotos:</h3>
-					 <?php   foreach ($dados as $resultado) { ?>
-                    <tr>
-                        <td><?=$resultado["piloto"]?></br></td>
-					</tr>
-					 <?php   }   ?>
-					</br>
-					</br>
-					</br>
-                    <h5>Acompanhe aqui o resultado da última corrida</h5>
-					<a href="/resultados">Resultados</a>
+                    <h5>Insira o arquivo de texto para obter o resultado da última corrida</h5>
+					<form method="POST" action="/principal/processar" enctype="multipart/form-data">
+						<label>Arquivo</label>
+						<input type="file" name="arquivo"><br><br>
+						<input type="submit" value="Importar">
+					</form>
+					
             </div>
         </div>
 	</div>

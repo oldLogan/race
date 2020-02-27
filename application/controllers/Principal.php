@@ -3,44 +3,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Principal extends MX_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-	
-	
-	 
 	public function index(){
 		
-		$this->load->model("race_model");
+		$this->load->template('index');
 		
-		$corridas = $this->race_model->listar();
-		$dados = array('corridas'=>$corridas);
-
-		$this->load->template('index', $dados);
-		//var_dump($dados['corridas']); die;
-	}
-
-	public function resultados(){
-		$this->load->model("race_model");
-		
-		
-		$dados = $this->race_model->listar();
-
-		$this->load->template('resultados', $dados);
-		//var_dump($dados); die;
 	}
 	
+	public function processar(){
+		
+		$arquivo_tmp = $_FILES['arquivo']['tmp_name'];
+
+		$dados = file($arquivo_tmp);
+		
+		foreach($dados as $linha){
+			
+			$linha = trim($linha);
+			$valor = explode(' ', $linha);
+						
+			$hora = $valor[0];
+			$cod_piloto = $valor[1];
+			$piloto = $valor[3];
+			$num_volta = $valor[4];
+			$tempo = $valor[5];
+			$vlc_media = $valor[6];
+			
+			$data = array('hora' => $hora, 'cod_piloto' => $cod_piloto, 'piloto' => $piloto, 'num_volta' => $num_volta, 'tempo' => $tempo, 'vlc_media' => $vlc_media);
+		
+		}
+		
+		$this->load->model("race_model");
+		$this->race_model->salvar($data);
+		
+		$this->load->template('resultados');
+
+	}
+
 }
 

@@ -2,7 +2,7 @@
 
 class Race_model extends CI_Model {
 	
-	private $table = "races";
+	private $table = "voltas";
 
 	public function listar() {
 		return $this->db->get($this->table)->result_array();

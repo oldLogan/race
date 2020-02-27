@@ -28,9 +28,9 @@
 					</br>
 					</br>
 					<h3>Os pilotos:</h3>
-					 <?php   foreach ($pilotos as $piloto) { ?>
+					 <?php   foreach ($dados as $resultado) { ?>
                     <tr>
-                        <td><?=$piloto["nme_piloto"]?></br></td>
+                        <td><?=$resultado["piloto"]?></br></td>
 					</tr>
 					 <?php   }   ?>
 					</br>

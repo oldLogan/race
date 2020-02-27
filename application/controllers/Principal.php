@@ -22,14 +22,14 @@ class Principal extends MX_Controller {
 	
 	 
 	public function index(){
-		$this->load->model("pilotos_model");
+		
 		$this->load->model("race_model");
-		$pilotos = $this->pilotos_model->listar();
+		
 		$corridas = $this->race_model->listar();
-		$dados = array('pilotos'=>$pilotos,'corridas'=>$corridas);
+		$dados = array('corridas'=>$corridas);
 
 		$this->load->template('index', $dados);
-		///var_dump($dados['corridas']); die;
+		//var_dump($dados['corridas']); die;
 	}
 
 	public function resultados(){

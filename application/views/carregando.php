@@ -16,20 +16,14 @@
 
     <div class="container">
         <div class="row">
-            <div class="form-group">
-                <div class="col-sm-12 text-center">
-					</br>
-					</br>
-					</br>
-					</br>
-                    <h5>Insira o arquivo de log para obter o resultado da última corrida</h5>
-					<form method="POST" action="/principal/gravar" enctype="multipart/form-data">
-						<label>Arquivo</label>
-						<input type="file" name="arquivo"><br><br>
-						<input type="submit" value="Importar">
-					</form>
-					
-            </div>
+			<div class="col-sm-12 text-center">
+				</br>
+				</br>
+				</br>
+				</br>
+				<h5>Clique abaixo para exibir os resultados</h5>
+					<a href="/resultados" name="arquivo"><strong>RESULTADOS</strong><br><br>
+			</div>
         </div>
 	</div>
 

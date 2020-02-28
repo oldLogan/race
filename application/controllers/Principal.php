@@ -9,8 +9,9 @@ class Principal extends MX_Controller {
 		
 	}
 	
-	public function processar(){
+	public function gravar(){
 		
+		$this->load->model("race_model");
 		$arquivo_tmp = $_FILES['arquivo']['tmp_name'];
 
 		$dados = file($arquivo_tmp);
@@ -28,15 +29,44 @@ class Principal extends MX_Controller {
 			$vlc_media = $valor[6];
 			
 			$data = array('hora' => $hora, 'cod_piloto' => $cod_piloto, 'piloto' => $piloto, 'num_volta' => $num_volta, 'tempo' => $tempo, 'vlc_media' => $vlc_media);
-		
+			$this->race_model->salvar($data);
+			
 		}
 		
-		$this->load->model("race_model");
-		$this->race_model->salvar($data);
-		
-		$this->load->template('resultados');
-
+		$this->load->template('carregando');
 	}
-
+		
+	public function carregando(){
+		
+		$this->load->template('carregando');
+		
+	}
+	
+	public function resultados(){
+		
+		$this->load->model("race_model");
+		$piloto = $this->race_model->listar_piloto();
+		$volta = $this->race_model->melhor_volta();
+		$vence = $this->race_model->vencedor();
+				
+		$dados = array('piloto' => $piloto, 'volta' => $volta, 'vence' => $vence);
+			
+		$this->load->template('resultados', $dados);
+		//echo '<pre>'; print_r($dados['vence']); echo '</pre>'; die;
+		
+	}
+	
+	public function dados(){
+		
+		$id = $_GET['id']; 
+		
+		$this->load->model("race_model");
+		$piloto = $this->race_model->dados_piloto($id); 
+		$pilotos = array('piloto' => $piloto);
+		//var_dump($pilotos);die;
+		$this->load->template('dados', $pilotos);
+				
+	}
+	
 }
 
